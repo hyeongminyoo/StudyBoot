@@ -13,5 +13,9 @@
 	<h1>Index Page</h1>
 	<img src="/images/puppy.jpg">
 	<a href="./qna/list">QNA</a>
+	<div>
+		<img alt="" src="/file/qna/eaabffaa-6669-4e86-845c-bd03c3d0d9f8_그레이하운드.jpg">
+		<a href="/fileDown/qna?fileNum=2">Download</a>
+	</div>
 </body>
 </html>

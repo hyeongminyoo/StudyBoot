@@ -35,7 +35,7 @@
 			<div class="row">
 				<c:forEach items="${vo.qnaFileVOs}" var="file">
 					<p>
-						<img src="C:\RHM\result\upload\qna\${file.fileName}">
+						<a href="/fileDown/qna/${file.fileName}">Download</a>
 					</p>
 				</c:forEach>
 			</div>
