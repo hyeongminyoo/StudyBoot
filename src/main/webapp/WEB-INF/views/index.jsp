@@ -15,7 +15,9 @@
 	<a href="./qna/list">QNA</a>
 	<div>
 		<img alt="" src="/file/qna/eaabffaa-6669-4e86-845c-bd03c3d0d9f8_그레이하운드.jpg">
-		<a href="/fileDown/qna?fileNum=2">Download</a>
+		<img alt="" src="/file/notice/파피용.jpg">
+		<a href="/fileDown/qna?fileNum=2">Qna Download</a>
+		<a href="/fileDown/notice?fileNum=2">Notice Download</a>
 	</div>
 </body>
 </html>

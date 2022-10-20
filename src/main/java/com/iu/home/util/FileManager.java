@@ -31,7 +31,8 @@ public class FileManager extends AbstractView {
 		log.info("============================================");
 		log.info("FileVO {}", qnaFileVO);
 		
-		File file = new File("C:/RHM/result/upload/qna/", qnaFileVO.getFileName());
+		String path = (String)model.get("path");
+		File file = new File("C:/RHM/result/upload/"+path, qnaFileVO.getFileName());
 		
 		//한글 처리
 		response.setCharacterEncoding("UTF-8");
