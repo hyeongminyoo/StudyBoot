@@ -18,7 +18,7 @@ import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.event.annotation.BeforeTestClass;
 import org.springframework.transaction.annotation.Transactional;
 
-@SpringBootTest
+//@SpringBootTest
 @Transactional
 class QnaMapperTest {
 	
