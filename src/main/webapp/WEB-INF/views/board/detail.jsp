@@ -38,7 +38,7 @@
 						<img alt="" src="/app/upload/${file.fileName}">
 					</p>
 					<p>
-						<a href="/fileDown/qna/${file.fileName}">Download</a>
+						<a href="/fileDown/${file.fileName}">Download</a>
 					</p>
 				</c:forEach>
 			</div>
