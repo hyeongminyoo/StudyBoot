@@ -13,7 +13,7 @@ class TransferTest {
 	@Autowired
 	private Card card;
 	
-	@Test
+//	@Test
 	void test() {
 
 		transport.takeBus();

@@ -61,7 +61,7 @@ class QnaMapperTest {
 	}
 	
 	
-	@Test
+//	@Test
 //	@Rollback(false)
 	void addTest() throws Exception{
 		
