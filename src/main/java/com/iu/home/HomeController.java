@@ -10,14 +10,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.fasterxml.jackson.databind.ser.std.StdKeySerializers.Default;
 import com.iu.home.board.qna.QnaMapper;
 import com.iu.home.board.qna.QnaVO;
 
 @Controller
 public class HomeController {
 	
-	@Value("${my.message.hi}")
+//	@Value("${my.message.hi}")
 	private String message;
+	@Value("${my.default}")
+	private String app;
 	
 //	private final Logger log = LoggerFactory.getLogger(HomeController.class);
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -26,11 +29,10 @@ public class HomeController {
 	
 	@GetMapping("/")
 	public String home() throws Exception{
-		log.error("Error Messge : "+message);
-		log.warn("Warn Messge : "+ message);
-		log.info("Info Message : "+message);
-		log.debug("Debug Message : "+message);
-		log.trace("Trace Message : "+message);
+		log.info("======================================");
+		log.info("Info Message {} ",message);
+		log.info("default {}",app);
+		log.info("======================================");
 		
 //		List<QnaVO> ar = qnaMapper.getList();
 		
