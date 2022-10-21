@@ -15,18 +15,18 @@ import lombok.extern.slf4j.Slf4j;
 @Aspect
 public class Card {
 	
-	@Before("execution(*com.iu.home.aop.test.Transport.take*())")
+//	@Before("execution(*com.iu.home.aop.test.Transport.take*())")
 	public void before() {
 		log.info("-----Before-----------");
 	}
 	
-	@After("execution(*com.iu.home.aop.test.Transport.get*())")
+//	@After("execution(*com.iu.home.aop.test.Transport.get*())")
 	public void after() {
 		log.info("---------After-------------");
 	}
 	
 	
-	@Around("execution(* com.iu.home.aop.test.Transport.take*())")
+//	@Around("execution(* com.iu.home.aop.test.Transport.take*())")
 	public Object cardCheck(ProceedingJoinPoint joinPoint) throws Throwable {
 		log.info("----- 승차입니다--------");
 		Object obj = joinPoint.proceed();

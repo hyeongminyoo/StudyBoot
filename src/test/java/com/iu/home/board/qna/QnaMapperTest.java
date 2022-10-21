@@ -13,9 +13,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.event.annotation.BeforeTestClass;
+import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
+@Transactional
 class QnaMapperTest {
 	
 	private final Logger log = LoggerFactory.getLogger(this.getClass());
@@ -56,19 +59,21 @@ class QnaMapperTest {
 	
 	
 //	@Test
+//	@Rollback(false)
 	void addTest() throws Exception{
 		
-		for(int i=0; i<100; i++) {
-			QnaVO qnaVO = new QnaVO();
-			qnaVO.setWriter("test"+i);
-			qnaVO.setTitle("yoo"+i);
-			qnaVO.setContents("yoo"+i);
+		
+		QnaVO qnaVO = new QnaVO();
+		qnaVO.setWriter("asdf");
+		qnaVO.setTitle("asdf");
+		qnaVO.setContents("asdf");
 			
-			int result = qnaMapper.setAdd(qnaVO);
+		int result = qnaMapper.setAdd(qnaVO);
+			
+		assertEquals(1, result);
 		
-		}
 		
-		log.info("Insert Finish");
+		
 	}
 	
 
