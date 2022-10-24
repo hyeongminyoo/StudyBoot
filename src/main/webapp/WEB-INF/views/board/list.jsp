@@ -32,7 +32,7 @@
 	</div>
 	
 	<div>
-		<a class="btn btn-danger" href="/qna/write">WRITE</a>
+		<a class="btn btn-danger" href="/qna/add">WRITE</a>
 	</div>
 	
 	

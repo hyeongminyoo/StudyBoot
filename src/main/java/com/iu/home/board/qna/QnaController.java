@@ -34,14 +34,14 @@ public class QnaController {
 		return mv;
 	}
 	
-	@GetMapping("write")
+	@GetMapping("add")
 	public ModelAndView setAdd(ModelAndView mv) throws Exception{
-		mv.setViewName("board/write");
+		mv.setViewName("board/add");
 		
 		return mv;
 	}
 	
-	@PostMapping("write")
+	@PostMapping("add")
 	public String setAdd(QnaVO qnaVO, RedirectAttributes redirectAttributes) throws Exception{
 		int result = qnaService.setAdd(qnaVO);
 		redirectAttributes.addAttribute("result", result);

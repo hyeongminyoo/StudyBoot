@@ -14,7 +14,7 @@
 	<div class="container">
 	<h1>Board Write Page</h1>
 		<div class="d-flex justify-content-between align-items-center">
-			<form action="write" method="post" enctype="multipart/form-data">
+			<form action="add" method="post" enctype="multipart/form-data">
 				<div class="mb-3">
 				  <label for="writer" class="form-label">작성자</label>
 				  <input type="text" class="form-control" id="writer" name="writer" placeholder="작성자를 입력하세요.">
