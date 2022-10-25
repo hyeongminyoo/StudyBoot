@@ -42,6 +42,10 @@
 		WHERE Q.NUM = #{num} 
 	</select>
 	
+	<select id="getFileDetail" parameterType="QnaFileVO" resultType="QnaFileVO">
+		SELECT * FROM QNAFILE WHERE FILENUM = #{fileNum}
+	</select>
+	
 	<resultMap type="QnaVO" id="getQnaDetail">
 		<id column="NUM" property="num"/>
 		<result column="WRITER" property="writer"/>

@@ -38,7 +38,7 @@
 						<img alt="" src="/file/qna/${file.fileName}">
 					</p>
 					<p>
-						<a href="/fileDown/${file.fileName}">Download</a>
+						<a href="/fileDown/qna?fileNum=${file.fileNum}">${file.oriName} Download</a>
 					</p>
 				</c:forEach>
 			</div>
