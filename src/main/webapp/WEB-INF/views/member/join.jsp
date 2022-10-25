@@ -73,11 +73,11 @@
 			    </div>
 			  </div> -->
 			  
-			  <div>
+			  <!-- <div>
 			  	관리자 <input type="checkbox" name="nums" value="1">
 			  	매니저 <input type="checkbox" name="nums" value="2">
 			  	일반 <input type="checkbox" name="nums" value="3">
-			  </div>
+			  </div> -->
 			  <div class="row justify-content-end">
 			  	<div >
 			  		<button type="submit" id="joinButton" class="btn btn-primary mb-3">Sign in</button>

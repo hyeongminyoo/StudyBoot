@@ -9,6 +9,6 @@ public interface MemberMapper {
 	
 	public MemberVO getLogin(MemberVO memberVO) throws Exception;
 	
-	public int setRole(RoleVO roleVO) throws Exception;
+	public int setMemberRole(MemberVO memberVO) throws Exception;
 	
 }

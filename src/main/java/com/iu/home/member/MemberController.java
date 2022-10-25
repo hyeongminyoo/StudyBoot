@@ -53,9 +53,9 @@ public class MemberController {
 	}
 	
 	@PostMapping("join")
-	public ModelAndView setJoin(MemberVO memberVO, Long[] nums) throws Exception{
+	public ModelAndView setJoin(MemberVO memberVO) throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = memberService.setJoin(memberVO, nums);
+		int result = memberService.setJoin(memberVO);
 		
 		String message = "";
 		String url ="./join";

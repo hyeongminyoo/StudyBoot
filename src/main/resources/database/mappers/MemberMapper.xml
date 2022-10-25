@@ -8,9 +8,9 @@
 		INSERT INTO MEMBER(ID, PW, NAME, EMAIL, ENABLED)
 		VALUES(#{id},#{pw},#{name},#{email}, 1)
 	</insert>
-	<insert id="setRole" parameterType="RoleVo">
+	<insert id="setMemberRole" parameterType="MemberVO">
 		INSERT INTO MEMBER_ROLE
-		VALUES(#{id},#{num})
+		VALUES(#{id},SELECT NUM FROM ROLE WHERE ROLENAME='ROLE_MEMBER')
 	</insert>
 	<select id="getLogin" parameterType="MemberVO" resultMap="getLoginResult">
 		SELECT M.*, MR.NUM, R.ROLENAME
