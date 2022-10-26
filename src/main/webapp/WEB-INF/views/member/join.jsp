@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../temp/boot.jsp"></c:import>
+<script defer src="/js/util.js"></script>
+<script defer src="/js/memberAdd.js"></script>
 </head>
 <body>
 
@@ -23,31 +25,31 @@
 			  <div class="row mb-3">
 			    <label for="inputUserName" class="col-sm-2 col-form-label">ID</label>
 			    <div class="col-sm-10">
-			      <input type="text" name="id" class="form-control" id="inputUserName" placeholder="ID 입력">
-				  <div id="inputUserNameResult" ></div>
+			      <input type="text" name="id" class="form-control" id="inputId" placeholder="ID 입력">
+				  <div id="inputUserNameResult"></div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
 			    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 			    <div class="col-sm-10">
-			      <input type="password" name="pw" class="form-control" id="inputPassword" placeholder="Password 입력">
+			      <input type="password" class="form-control" id="inputPw" placeholder="Password 입력">
 				  <div id="inputPasswordResult"></div>
 			    </div>
 			  </div>
 
-			 <!--  <div class="row mb-3">
-			    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+			  <div class="row mb-3">
+			    <label for="inputPassword" class="col-sm-2 col-form-label">Password 확인</label>
 			    <div class="col-sm-10">
-			      <input type="password" name="password" class="form-control" id="inputPasswordCheck" placeholder="Password 입력">
+			      <input type="password" name="pw" class="form-control" id="inputPwCh" placeholder="Password 입력">
 				  <div id="inputPasswordCheckResult"></div>
 			    </div>
-			  </div> -->
+			  </div>
 
 			  <div class="row mb-3">
 			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 			    <div class="col-sm-10">
 			      <input type="text" name="name" class="form-control" id="inputName" placeholder="이름 입력">
-				  <div></div>
+				  <div id="inputNameResult"></div>
 			    </div>
 			  </div>
 			  
@@ -55,7 +57,7 @@
 			    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 			    <div class="col-sm-10">
 			      <input type="email" required name="email" class="form-control" id="inputEmail" placeholder="Email 입력">
-				  <div></div>
+				  <div id="inputEmailResult"></div>
 			    </div>
 			  </div>
 			 <!--  <div class="row mb-3">
@@ -78,9 +80,40 @@
 			  	매니저 <input type="checkbox" name="nums" value="2">
 			  	일반 <input type="checkbox" name="nums" value="3">
 			  </div> -->
+			  
+			  <!-- 약관동의 Test -->
+			  <div class="row mt-5 justify-content-center">
+				  <div class="row mt-5 justify-content-center">
+					  ALL <input type="checkbox" id="all">
+				  </div>
+				  <div class="row mt-5 justify-content-center">
+					  동의1 <input type="checkbox" class="check" name="" id="">
+					  <div class="row mt-5 justify-content-center">
+						  약관1
+					  </div>
+				  </div class="row mt-5 justify-content-center">
+				  <div class="row mt-5 justify-content-center">
+					  동의2 <input type="checkbox" class="check" name="" id="">
+					  <div class="row mt-5 justify-content-center">
+						  약관2
+					  </div>
+				  </div>
+				  <div class="row mt-5 justify-content-center">
+					  동의3 <input type="checkbox" class="check" name="" id="">
+					  <div class="row mt-5 justify-content-center">
+						  약관3
+					  </div>
+				  </div>
+			  </div>
+			 
+			 
+			 
+			 
+			 
+			 
 			  <div class="row justify-content-end">
 			  	<div >
-			  		<button type="submit" id="joinButton" class="btn btn-primary mb-3">Sign in</button>
+			  		<button type="button" id="joinButton" class="btn btn-primary mb-3">Sign in</button>
 			  	</div>
 			  </div>
 			</form>
@@ -88,6 +121,5 @@
         
         </div>
     </div>
-
 </body>
 </html>

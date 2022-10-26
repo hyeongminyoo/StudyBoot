@@ -8,7 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -69,7 +71,6 @@ public class MemberController {
 		mv.setViewName("common/result");
 		
 		return mv;
-		
 	}
 	
 	@GetMapping("logout")
@@ -78,5 +79,17 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
+	@PostMapping("idCheck")
+	@ResponseBody
+	public int getIdCheck(String id) throws Exception{
+		int result = memberService.getIdCheck(id);
+		if(result > 0) {
+			result = 1;
+		}else {
+			result = 0;
+		}
+		
+		return result;
+	}
 	
 }

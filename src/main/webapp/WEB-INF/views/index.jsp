@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 <c:import url="./temp/boot.jsp"></c:import>
 <link href="/css/test.css" rel="stylesheet">
+<script defer src="/js/test.js"></script>
 </head>
 <body>
 	<h1>Index Page</h1>
@@ -31,5 +32,16 @@
 		<a href="/fileDown/notice?fileNum=2">Notice Download</a>
 		
 	</div>
+	
+	<button id="btn">CLICK</button>
+
+	<button class="buttons">BTN1</button>
+	<button class="buttons">BTN2</button>
+	<button class="buttons">BTN3</button>
+
+	<div id="test">
+		
+	</div>
+	
 </body>
 </html>

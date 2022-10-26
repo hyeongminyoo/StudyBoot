@@ -23,6 +23,11 @@
 		ORDER BY R.NUM ASC
 	</select>
 	
+	<select id="getIdCheck" parameterType="String" resultType="Integer">
+		SELECT COUNT(ID) FROM MEMBER WHERE ID=#{id}
+	</select>
+	
+	
 	<resultMap type="MemberVO" id="getLoginResult">
 		<id column="ID" property="id"/>
 		<result column="PW" property="pw"/>
