@@ -11,6 +11,11 @@
 <body>
 	<div class="container">
 	<h3>Detail</h3>
+		
+		<div class="row">
+			<a href="./update?num=${vo.num}"><button type="button">수정</button></a>
+		</div>
+		
 		<div class="row">
 			<div class="row">
 				<table class="table table-hover">
@@ -35,7 +40,7 @@
 			<div class="row">
 				<c:forEach items="${vo.qnaFileVOs}" var="file">
 					<p>
-						<img alt="" src="/file/qna/${file.fileName}">
+						<img alt="" src="/file/qna/${file.fileName}" style="height: 150px; width: 150px;">
 					</p>
 					<p>
 						<a href="/fileDown/qna?fileNum=${file.fileNum}">${file.oriName} Download</a>

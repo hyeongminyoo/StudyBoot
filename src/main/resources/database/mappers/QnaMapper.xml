@@ -46,6 +46,10 @@
 		SELECT * FROM QNAFILE WHERE FILENUM = #{fileNum}
 	</select>
 	
+	<delete id="setFileDelete" parameterType="QnaFileVO">
+		DELETE FROM QNAFILE WHERE FILENUM = #{fileNum}
+	</delete>
+	
 	<resultMap type="QnaVO" id="getQnaDetail">
 		<id column="NUM" property="num"/>
 		<result column="WRITER" property="writer"/>

@@ -74,4 +74,21 @@ public class QnaService {
 		return qnaMapper.getFileDetail(qnaFileVO);
 	}
 	
+	public int setFileDelete(QnaFileVO qnaFileVO) throws Exception{
+		
+		//1. fileNum 조회
+		qnaFileVO = qnaMapper.getFileDetail(qnaFileVO);
+		
+		//2. DB 삭제
+		int result = qnaMapper.setFileDelete(qnaFileVO);
+		
+		//3. DB에서 잘 지워졌으면 로컬에서 삭제
+		if(result == 1) {
+			boolean fileResult = fileManager.deleteFile(qnaFileVO, path);
+			log.info("fileResult {}", fileResult);
+		}
+		
+		
+		return result;
+	}
 }
