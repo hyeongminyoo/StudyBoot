@@ -79,15 +79,10 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
-	@PostMapping("idCheck")
+	@GetMapping("idCheck")
 	@ResponseBody
 	public int getIdCheck(String id) throws Exception{
 		int result = memberService.getIdCheck(id);
-		if(result > 0) {
-			result = 1;
-		}else {
-			result = 0;
-		}
 		
 		return result;
 	}

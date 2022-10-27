@@ -43,25 +43,40 @@ $(".check").click(function(){
 // id , pw ,pwcheck , name , email
 let results = [false,false,false,false,false];
 $("#inputId").blur(function(){
-    let result = nullcheck($("#inputId").val(),"#inputUserNameResult","ID");
+    let id = $("#inputId").val();
+    let result = nullcheck(id,"#inputUserNameResult","ID");
     results[0] = result;
-})
 
-
-$("#inputId").change(function(){
-    
-    const xhttp = new XMLHttpRequest();
-    xhttp.open("POST","./idCheck");
-    xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhttp.send("id="+$("#inputId").val());
-    xhttp.onreadystatechange = function(){
-        if(this.readyState == 4 && this.status == 200){
-            let result = xhttp.responseText.trim();
-            console.log("결과:",result);
-        }
+    //단 id가 비어있지 않을 때 실행
+    if(result){
+        $.get("./idCheck?id="+id,function(data){
+            console.log("data:",data);
+            if(data=='0'){
+                $("#inputUserNameResult").html("사용가능한 ID");
+                results[0] = true;
+            }else{
+                $("#inputUserNameResult").html("이미 사용중인 ID");
+                results[0] = false;
+            }
+        })
     }
 
 })
+
+
+// $("#inputId").change(function(){
+    
+//     const xhttp = new XMLHttpRequest();
+//     xhttp.open("GET","./idCheck?id="+$("#inputId"));
+//     xhttp.send();
+//     xhttp.onreadystatechange = function(){
+//         if(this.readyState == 4 && this.status == 200){
+//             let result = xhttp.responseText.trim();
+//             console.log("결과:",result);
+//         }
+//     }
+
+// })
 
 
 
