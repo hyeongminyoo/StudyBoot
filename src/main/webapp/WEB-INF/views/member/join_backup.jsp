@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <c:import url="../temp/boot.jsp"></c:import>
 <script defer src="/js/util.js"></script>
-<!-- <script defer src="/js/memberAdd.js"></script> -->
+<script defer src="/js/memberAdd.js"></script>
 </head>
 <body>
 
@@ -22,21 +22,18 @@
     
     	<div class="row justify-content-center mt-5">
     		<div class="col-lg-6">
-        	<form:form modelAttribute="memberVO" method="post">
-        	
+        	<form action="./join" id="joinForm" method="post" enctype="application/x-www-form-urlencoded">
 			  <div class="row mb-3">
 			    <label for="inputUserName" class="col-sm-2 col-form-label">ID</label>
 			    <div class="col-sm-10">
-			      <form:input path="id" cssClass="form-control" id="inputId"/>
-			      <form:errors path="id"></form:errors>
+			      <input type="text" name="id" class="form-control" id="inputId" placeholder="ID 입력">
 				  <div id="inputUserNameResult"></div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
 			    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
 			    <div class="col-sm-10">
-			    	<form:password path="pw" cssClass="form-control" id="inputPw"/>
-			    	<form:errors path="pw"></form:errors>
+			      <input type="password" class="form-control" id="inputPw" placeholder="Password 입력">
 				  <div id="inputPasswordResult"></div>
 			    </div>
 			  </div>
@@ -44,8 +41,7 @@
 			  <div class="row mb-3">
 			    <label for="inputPassword" class="col-sm-2 col-form-label">Password 확인</label>
 			    <div class="col-sm-10">
-			    	<form:password path="pwCheck" cssClass="form-control" id="inputPwCh"/>
-			    	<form:errors path="pwCheck"></form:errors>
+			      <input type="password" name="pw" class="form-control" id="inputPwCh" placeholder="Password 입력">
 				  <div id="inputPasswordCheckResult"></div>
 			    </div>
 			  </div>
@@ -53,8 +49,7 @@
 			  <div class="row mb-3">
 			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 			    <div class="col-sm-10">
-				    <form:input path="name" cssClass="form-control" id="inputName"/>
-				    <form:errors path="name"></form:errors>
+			      <input type="text" name="name" class="form-control" id="inputName" placeholder="이름 입력">
 				  <div id="inputNameResult"></div>
 			    </div>
 			  </div>
@@ -62,27 +57,8 @@
 			  <div class="row mb-3">
 			    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
 			    <div class="col-sm-10">
-			    	<form:input path="email" cssClass="form-control" id="inputEmail"/>
-			    	<form:errors path="email"></form:errors>
+			      <input type="email" required name="email" class="form-control" id="inputEmail" placeholder="Email 입력">
 				  <div id="inputEmailResult"></div>
-			    </div>
-			  </div>
-			  <div class="row mb-3">
-			    <label for="inputAge" class="col-sm-2 col-form-label">Age</label>
-			    <div class="col-sm-10">
-			    	<form:input path="age" cssClass="form-control" id="inputAge"/>
-			    	<form:errors path="age"></form:errors>
-				  <div id="inputAgeResult"></div>
-			    </div>
-			  </div>
-			  
-			  
-			  <div class="row mb-3">
-			    <label for="inputBirth" class="col-sm-2 col-form-label">Birth</label>
-			    <div class="col-sm-10">
-			    	<form:input path="birth" cssClass="form-control" id="inputBirth"/>
-			    	<form:errors path="birth"></form:errors>
-				  <div id="inputbirthResult"></div>
 			    </div>
 			  </div>
 			 <!--  <div class="row mb-3">
@@ -116,7 +92,7 @@
 					  <div class="row mt-5 justify-content-center">
 						  약관1
 					  </div>
-				  </div class="row mt-5 justify-content-center">
+				  </div>
 				  <div class="row mt-5 justify-content-center">
 					  동의2 <input type="checkbox" class="check" name="" id="">
 					  <div class="row mt-5 justify-content-center">
@@ -138,13 +114,10 @@
 			 
 			  <div class="row justify-content-end">
 			  	<div >
-			  		<%-- type : submit <form:button></form:button> --%>
-			  		<button type="submit" id="joinButton" class="btn btn-primary mb-3">Sign in</button>
+			  		<button type="button" id="joinButton" class="btn btn-primary mb-3">Sign in</button>
 			  	</div>
 			  </div>
-			  
-			</form:form>
-			
+			</form>
         	</div>
         
         </div>

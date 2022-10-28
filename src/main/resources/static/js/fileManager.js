@@ -37,13 +37,18 @@ function fdel(e){
 
 
 //// 글 수정 시 첨부파일 삭제 (하드디스크에서도)
-
+let flag = true;
 $("#files").on("click",".deleteFile",function(){
     //DB, HDD 삭제
     let file = this;
     let check = window.confirm("삭제하시겠습니까?");
-    let fileNum = $(this).attr("data-fileNum");
-    console.log(fileNum);
+    if(flag){
+        let fileNum = $(this).attr("data-fileNum");
+        console.log(fileNum);
+        flag=false;
+    }
+    let fileSize = $("#files").attr("data-file-size");
+    console.log(fileSize);
     if(check){
         //post방식 
         // /qna/fileDelete
