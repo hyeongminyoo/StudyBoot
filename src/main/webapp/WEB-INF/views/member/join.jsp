@@ -9,7 +9,7 @@
 <title>Insert title here</title>
 <c:import url="../temp/boot.jsp"></c:import>
 <script defer src="/js/util.js"></script>
-<!-- <script defer src="/js/memberAdd.js"></script> -->
+<script defer src="/js/memberAdd.js"></script>
 </head>
 <body>
 
@@ -28,8 +28,9 @@
 			    <label for="inputUserName" class="col-sm-2 col-form-label">ID</label>
 			    <div class="col-sm-10">
 			      <form:input path="id" cssClass="form-control" id="inputId"/>
-			      <form:errors path="id"></form:errors>
-				  <div id="inputUserNameResult"></div>
+				  <div id="inputUserNameResult">
+				  	<form:errors path="id"></form:errors>
+				  </div>
 			    </div>
 			  </div>
 			  <div class="row mb-3">
@@ -54,8 +55,10 @@
 			    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
 			    <div class="col-sm-10">
 				    <form:input path="name" cssClass="form-control" id="inputName"/>
-				    <form:errors path="name"></form:errors>
-				  <div id="inputNameResult"></div>
+				    <%-- <form:errors path="name"></form:errors> --%>
+				  <div id="inputNameResult">
+				  	${name}
+				  </div>
 			    </div>
 			  </div>
 			  

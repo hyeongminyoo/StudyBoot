@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -65,11 +66,32 @@ public class MemberController {
 	
 	@PostMapping("join")
 	public ModelAndView setJoin(@Valid MemberVO memberVO, BindingResult bindingResult ,ModelAndView mv) throws Exception{
-		if(bindingResult.hasErrors()) {
+//		if(bindingResult.hasErrors()) {
+//			//검증에 실패하면 회원가입하는 jsp로 forward
+//			log.info("======== 검증 에러 발생 =======");
+//			
+//			mv.setViewName("member/join");
+//			return mv;
+//		}
+
+		boolean check = memberService.getMemberError(memberVO, bindingResult);
+		if(check) {
 			//검증에 실패하면 회원가입하는 jsp로 forward
 			log.info("======== 검증 에러 발생 =======");
 			
 			mv.setViewName("member/join");
+			//===================================='\
+			List<FieldError> fieldErrors = bindingResult.getFieldErrors();
+			for(FieldError fieldError : fieldErrors) {
+				log.info("FieldError => {}", fieldError);
+				log.info("Field => {}", fieldError.getField());
+				log.info("Message => {}", fieldError.getRejectedValue());
+				log.info("Default => {}", fieldError.getDefaultMessage());
+				log.info("Code => {}", fieldError.getCode());
+				mv.addObject(fieldError.getField(), fieldError.getDefaultMessage());
+				log.info("==================================================");
+			}
+			
 			return mv;
 		}
 //		int result = memberService.setJoin(memberVO);
@@ -85,6 +107,7 @@ public class MemberController {
 //		mv.addObject("message", message);
 //		mv.setViewName("common/result");
 		
+		mv.setViewName("redirect:../");
 		return mv;
 	}
 	
