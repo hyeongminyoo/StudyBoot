@@ -74,7 +74,7 @@ public class Pager {
 		this.lastNum = curBlock*this.getPerBlock();
 		
 		if(curBlock == totalBlock){
-			this.lastNum = totalBlock;
+			this.lastNum = totalPage;
 		}
 		
 		if(curBlock > 1) {
