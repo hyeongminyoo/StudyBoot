@@ -33,29 +33,29 @@ public class MemberController {
 		return "member/login";
 	}
 	
-	@PostMapping("login")
-	public ModelAndView getLogin(MemberVO memberVO, HttpSession session) throws Exception{
-		ModelAndView mv = new ModelAndView();
-		memberVO = memberService.getLogin(memberVO);
-		
-		session.setAttribute("member", memberVO);
-		
-		int result = 0;
-		String message = "로그인 실패";
-		String url = "./login";
-		if(memberVO != null) {
-			result = 1;
-			message = "로그인 성공";
-			url = "../";
-		}
-		mv.addObject("result", result);
-		mv.addObject("message", message);
-		mv.addObject("url", url);
-		mv.setViewName("common/result");
-		
-		return mv;
-		
-	}
+//	@PostMapping("login")
+//	public ModelAndView getLogin(MemberVO memberVO, HttpSession session) throws Exception{
+//		ModelAndView mv = new ModelAndView();
+//		memberVO = memberService.getLogin(memberVO);
+//		
+//		session.setAttribute("member", memberVO);
+//		
+//		int result = 0;
+//		String message = "로그인 실패";
+//		String url = "./login";
+//		if(memberVO != null) {
+//			result = 1;
+//			message = "로그인 성공";
+//			url = "../";
+//		}
+//		mv.addObject("result", result);
+//		mv.addObject("message", message);
+//		mv.addObject("url", url);
+//		mv.setViewName("common/result");
+//		
+//		return mv;
+//		
+//	}
 	
 	@GetMapping("join")
 	public String setJoin(@ModelAttribute MemberVO memberVO) throws Exception{

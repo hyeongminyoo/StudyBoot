@@ -17,7 +17,7 @@
 	<h1>Board Write Page</h1>
 		<div class="d-flex justify-content-between align-items-center">
 			
-			<form:form method="post" modelAttribute="qnaVO" enctype="multipart/form_data">
+			<form:form method="post" modelAttribute="qnaVO" enctype="multipart/form-data">
 			
 				<div class="mb-3">
 				  <label for="writer" class="form-label">작성자</label>
