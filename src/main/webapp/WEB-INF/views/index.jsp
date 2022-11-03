@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring" %>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,17 +20,34 @@
 	<img src="/images/puppy.jpg">
 	<a href="./qna/list">QNA</a>
 	<div>
-		<c:choose>
-			<c:when test="${empty sessionScope.member}">
+		
+			<!-- 로그인 성공했을떄 -->		
+			<sec:authorize access="isAuthenticated()">	
+				
+				<sec:authentication property="Principal" var="user"/>
+				<h3><spring:message code="welcome" arguments="${user.name}"></spring:message> </h3>
+				<h3><spring:message code="welcome2" arguments="${user.id},${user.name}" argumentSeparator=","></spring:message> </h3>
+				
+				<a href="/member/mypage">MyPage</a>
+				<a href="/member/logout">로그아웃</a>
+						
+			</sec:authorize>
+			
+			<!-- 로그인 전 -->
+			<sec:authorize access="!isAuthenticated()">	
 				<a href="/member/login">로그인</a>
 				<a href="/member/join">회원가입</a>
-			</c:when>
-			<c:otherwise>
-				<h3><spring:message code="welcome" arguments="${member.name}"></spring:message> </h3>
-				<h3><spring:message code="welcome2" arguments="${member.id},${member.name}" argumentSeparator=","></spring:message> </h3>
-				<a href="/member/logout">로그아웃</a>
-			</c:otherwise>
-		</c:choose>	
+			</sec:authorize>	
+			
+			<sec:authorize url="/admin">
+				<a href="/admin">관리자</a>
+			</sec:authorize>
+			
+			<sec:authorize access="hasAnyRole('ADMIN','MANAGER')">
+				<a href="/manager">Go Manager</a>
+			</sec:authorize>
+			
+			
 	</div>
 	<div>
 		<img alt="" src="/file/qna/eaabffaa-6669-4e86-845c-bd03c3d0d9f8_그레이하운드.jpg">

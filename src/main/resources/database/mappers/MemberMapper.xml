@@ -12,14 +12,14 @@
 		INSERT INTO MEMBER_ROLE
 		VALUES(#{id},SELECT NUM FROM ROLE WHERE ROLENAME='ROLE_MEMBER')
 	</insert>
-	<select id="getLogin" parameterType="MemberVO" resultMap="getLoginResult">
+	<select id="getLogin" parameterType="String" resultMap="getLoginResult">
 		SELECT M.*, MR.NUM, R.ROLENAME
 		FROM MEMBER M
 		INNER JOIN MEMBER_ROLE MR 
 		ON M.ID = MR.ID
 		INNER JOIN ROLE R
 		ON MR.NUM = R.NUM
-		WHERE M.ID = #{id} AND M.PW = #{pw}
+		WHERE M.ID = #{username}
 		ORDER BY R.NUM ASC
 	</select>
 	

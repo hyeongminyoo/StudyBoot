@@ -111,11 +111,13 @@ public class MemberController {
 		return mv;
 	}
 	
-	@GetMapping("logout")
-	public String getLogOut(HttpSession session) throws Exception{
-		session.invalidate();
-		return "redirect:../";
-	}
+//	@GetMapping("logout")
+//	public String getLogOut(HttpSession session) throws Exception{
+//		log.info("========= 내가만든 logout 메서드 ==========");
+//		
+//		session.invalidate();
+//		return "redirect:../";
+//	}
 	
 	@GetMapping("idCheck")
 	@ResponseBody
@@ -123,6 +125,11 @@ public class MemberController {
 		int result = memberService.getIdCheck(id);
 		
 		return result;
+	}
+	
+	@GetMapping("mypage")
+	public void getMypage() throws Exception{
+		
 	}
 	
 }

@@ -91,7 +91,7 @@ public class MemberVO implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		
-		return false;
+		return true;
 	}
 	
 	//isEnabled
