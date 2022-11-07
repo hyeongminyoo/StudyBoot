@@ -28,6 +28,17 @@ public class QnaController {
 	private Logger log = LoggerFactory.getLogger(this.getClass());
 	@Autowired
 	private QnaService qnaService;
+	@Autowired
+	private QnaMapper qnaMapper;
+	
+	@GetMapping("hack")
+	@ResponseBody
+	public int hack(QnaVO qnaVO) throws Exception {
+		qnaMapper.setAdd(qnaVO);
+		return 1;
+	}
+	
+	
 	
 	@GetMapping("list")
 	public ModelAndView getList(Pager pager,ModelAndView mv) throws Exception{
