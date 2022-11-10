@@ -1,11 +1,18 @@
 package com.iu.home.member;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpMethod;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -18,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,6 +36,39 @@ public class MemberController {
 	
 	@Autowired
 	private MemberService memberService;
+	
+	
+	@GetMapping("delete")
+	public ModelAndView setDelete(HttpSession session, String password, HttpServletRequest request, HttpServletResponse response) throws Exception{
+		// 1. 소셜로그인 / 일반 로그인 구분
+		ModelAndView mv = new ModelAndView();
+		SecurityContextImpl context = (SecurityContextImpl)session.getAttribute("SPRING_SECURITY_CONTEXT");
+		Authentication authentication = context.getAuthentication();
+		
+		
+		MemberVO memberVO = (MemberVO)authentication.getPrincipal();
+	
+		int result = memberService.setDelete(memberVO);
+		
+		if(result > 0) {
+			session.invalidate();
+			Cookie [] cookies = request.getCookies();
+			
+			for(Cookie cookie : cookies) {
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+			}
+			mv.setViewName("redirect:/");
+//			redirectAttributes.addFlashAttribute("authentication", authentication);
+//			return "redirect:../member/logout";
+		}else {
+			//탈퇴 실패
+//			return "redirect:/";
+		}
+		
+		return mv;
+		
+	}
 	
 	@GetMapping("login")
 	public String getLogin(@RequestParam(defaultValue = "false", required = false) boolean error, String message, Model model) throws Exception{
@@ -136,6 +177,11 @@ public class MemberController {
 	@GetMapping("mypage")
 	public void getMypage() throws Exception{
 		
+	}
+	
+	@GetMapping("/logoutResult")
+	public String socialLogout() throws Exception{
+		return "redirect:../";
 	}
 	
 }
