@@ -1,11 +1,11 @@
 package com.iu.home.board.qna;
 
+import java.io.File;
 import java.util.List;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpSession;
 
-import org.apache.tomcat.jni.File;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -29,6 +29,27 @@ public class QnaService {
 	private String path;
 	@Autowired
 	private FileManager fileManager;
+
+	
+	public boolean setSummerFileDelete(String fileName) throws Exception{
+		fileName = fileName.substring(fileName.lastIndexOf("/"));
+		QnaFileVO qnaFileVO = new QnaFileVO();
+		qnaFileVO.setFileName(fileName);
+		boolean result = fileManager.deleteFile(qnaFileVO, path);
+		
+		return result;
+	}
+	
+	
+	public String setSummerFile(MultipartFile file) throws Exception{
+		
+		String fileName = fileManager.saveFile(file, path);
+		
+		fileName = "/file/qna/"+fileName;
+		
+		
+		return fileName;
+	}
 	
 	public List<QnaVO> getList(Pager pager) throws Exception{
 		Long totalCount = qnaMapper.getCount(pager);
@@ -43,7 +64,7 @@ public class QnaService {
 		
 		int result = qnaMapper.setAdd(qnaVO);
 		
-		java.io.File file = new java.io.File(path);
+		File file = new File(path);
 		if(!file.exists()) {
 			boolean check = file.mkdirs();
 		}

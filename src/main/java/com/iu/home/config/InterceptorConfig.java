@@ -11,8 +11,8 @@ import com.iu.home.interceptors.TestInterceptor;
 
 import lombok.extern.slf4j.Slf4j;
 
-@Configuration
-@Slf4j
+//@Configuration
+//@Slf4j
 public class InterceptorConfig implements WebMvcConfigurer {
 	
 	@Autowired //IOC (Inversion of Control)

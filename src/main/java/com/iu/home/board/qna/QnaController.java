@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,28 @@ public class QnaController {
 	private QnaService qnaService;
 	@Autowired
 	private QnaMapper qnaMapper;
+	
+	@PostMapping("summerFileDelete")
+	@ResponseBody
+	public boolean setSummerFileDelete(String fileName) throws Exception{
+		log.info("fileName => {} ", fileName);
+		boolean result = qnaService.setSummerFileDelete(fileName);
+		return result;
+	}
+	
+	
+	
+	@PostMapping("summerFile")
+	@ResponseBody
+	public String setSummerFile(MultipartFile files) throws Exception{
+		log.info("files => ", files);
+		
+		String result = qnaService.setSummerFile(files);
+		
+		return result;
+	}
+	
+	
 	
 	@GetMapping("hack")
 	@ResponseBody
